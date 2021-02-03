@@ -1,6 +1,7 @@
 dependencies:
   '@nestjs/common': 7.6.9_0c773f197e7bb0df0bedc332ad8bc35d
   '@nestjs/core': 7.6.9_c50e8e0ca946e2c2426fe52d06ff8b25
+  '@nestjs/mapped-types': 0.3.0_15ca0d62231f9eb456873e29fbb76824
   '@nestjs/mongoose': 7.2.2_b0898f94746768b14dfbd648d28df207
   '@nestjs/passport': 7.1.5_77a5b79312dc31f75969e6d186c4576c
   '@nestjs/platform-express': 7.6.9_0c37b693840ecddfad4d383c2ae84afb
@@ -696,6 +697,18 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-ihuSN4gFNvY5cdcDEoRiH0sQx985tIvc49I4+zxG4IFORtmGKP5O5dfNfc+HrpHKk0Nv1tjZdt2F1YqgBQr8iw==
+  /@nestjs/mapped-types/0.3.0_15ca0d62231f9eb456873e29fbb76824:
+    dependencies:
+      '@nestjs/common': 7.6.9_0c773f197e7bb0df0bedc332ad8bc35d
+      reflect-metadata: 0.1.13
+    dev: false
+    peerDependencies:
+      '@nestjs/common': ^7.0.8
+      class-transformer: ^0.2.0 || ^0.3.0
+      class-validator: ^0.11.1 || ^0.12.0 || ^0.13.0
+      reflect-metadata: ^0.1.12
+    resolution:
+      integrity: sha512-AdWVTOg3AhAEcVhPGgUJiLbLXb7L5Pe7vc20YQ0oOXP/KD/nJj0I3BcytVdBhzmgepol67BdivNUvo27Hx3Ndw==
   /@nestjs/mongoose/7.2.2_b0898f94746768b14dfbd648d28df207:
     dependencies:
       '@nestjs/common': 7.6.9_0c773f197e7bb0df0bedc332ad8bc35d
@@ -6697,6 +6710,7 @@ specifiers:
   '@nestjs/cli': ^7.5.4
   '@nestjs/common': ^7.6.9
   '@nestjs/core': ^7.6.9
+  '@nestjs/mapped-types': ^0.3.0
   '@nestjs/mongoose': ^7.2.2
   '@nestjs/passport': ^7.1.5
   '@nestjs/platform-express': ^7.6.9

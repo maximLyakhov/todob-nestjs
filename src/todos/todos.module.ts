@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Todo, TodoSchema } from './entities/todo.entity';
+import { Todo, TodoSchema } from './dto/todo.schema';
 import { TodosController } from './todos.controller';
 import { TodosService } from './todos.service';
 

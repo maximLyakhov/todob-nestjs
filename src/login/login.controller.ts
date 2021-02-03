@@ -5,11 +5,10 @@ import { LoginService } from './login.service';
 @Controller('login')
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
+
   @Post()
   getLogin(@Body() data: Login) {
-    let singleLogin = this.loginService.logins.find(
-      (item) => item.email === data.email && item.password === data.password,
-    );
+    let singleLogin = this.loginService.findUser(data);
     return Boolean(singleLogin);
   }
 }
