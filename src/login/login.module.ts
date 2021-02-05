@@ -17,5 +17,6 @@ import { User, UserSchema } from 'src/registration/dto/registration.schema';
   ],
   providers: [LoginService, RegistrationService],
   controllers: [LoginController, RegistrationController],
+  exports: [LoginService],
 })
 export class LoginModule {}

@@ -10,8 +10,18 @@ export class RegistrationService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
   ) {}
 
-  create(registrationDto: RegistrationDto) {
+  async create(registrationDto: RegistrationDto) {
+    const maybeExistingReg = this.userModel
+      .findOne({ email: registrationDto.email })
+      .exec();
+
     const reg = new this.userModel(registrationDto);
-    return reg.save();
+    try {
+      if (registrationDto.email === (await maybeExistingReg).email) {
+        return false;
+      }
+    } catch {
+      return reg.save();
+    }
   }
 }

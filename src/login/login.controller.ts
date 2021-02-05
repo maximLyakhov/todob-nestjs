@@ -9,6 +9,6 @@ export class LoginController {
   @Post()
   getLogin(@Body() data: Login) {
     let singleLogin = this.loginService.findUser(data);
-    return Boolean(singleLogin);
+    return singleLogin;
   }
 }

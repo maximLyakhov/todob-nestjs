@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
+import { Controller, Post, Body, ForbiddenException } from '@nestjs/common';
 import { RegistrationService } from './registration.service';
 import { RegistrationDto } from './dto/registration.dto';
 
@@ -7,8 +7,10 @@ export class RegistrationController {
   constructor(private readonly registrationService: RegistrationService) {}
 
   @Post()
-  create(@Body() registrationDto: RegistrationDto) {
+  async create(@Body() registrationDto: RegistrationDto) {
     const success = this.registrationService.create(registrationDto);
-    return Boolean(success);
+    if (await success) {
+      return success;
+    } else return new ForbiddenException('This email is already taken');
   }
 }

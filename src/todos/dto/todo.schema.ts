@@ -1,8 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { User } from 'src/registration/dto/registration.schema';
 
 @Schema()
-export class Todo extends Document {
+export class Todo extends User {
+  @Prop()
+  userid: string;
+
   @Prop()
   title: string;
 
