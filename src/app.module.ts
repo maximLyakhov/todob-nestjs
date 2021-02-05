@@ -4,7 +4,7 @@ import { TodosModule } from './todos/todos.module';
 import { LoginModule } from './login/login.module';
 import { DetailsModule } from './todos/details/details.module';
 import { RegistrationModule } from './registration/registration.module';
-// import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { RegistrationModule } from './registration/registration.module';
     LoginModule,
     DetailsModule,
     RegistrationModule,
-    // AuthModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

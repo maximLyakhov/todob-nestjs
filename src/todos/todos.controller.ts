@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch } from '@nestjs/common';
 import { TodoDto } from './dto/todo.dto';
 import { TodosService } from './todos.service';
 
@@ -14,5 +14,10 @@ export class TodosController {
   @Post()
   postTodo(@Body() body: TodoDto) {
     return this.todosService.create(body);
+  }
+
+  @Patch()
+  checkTodo(@Body('date') date, @Body('done') done) {
+    return this.todosService.checkTodo(date, done);
   }
 }

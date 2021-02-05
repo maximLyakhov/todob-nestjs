@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { LoginService } from 'src/login/login.service';
@@ -23,13 +23,18 @@ export class TodosService {
       .exec();
   }
 
-  // async update(date: number, todoDto: TodoDto) {
-  //   const existingTodo = await this.todoModel
-  //     .findOneAndUpdate({ date: date }, { $set: todoDto }, { new: true })
-  //     .exec();
-  //   if (!existingTodo) {
-  //     throw new NotFoundException('blabla');
-  //   }
-  //   return existingTodo;
-  // }
+  async checkTodo(date: number, done: boolean) {
+    const todo = await this.todoModel
+      .findOneAndUpdate(
+        {
+          date: date,
+        },
+        {
+          done: !done,
+        },
+        { useFindAndModify: false },
+      )
+      .exec();
+    return todo;
+  }
 }
