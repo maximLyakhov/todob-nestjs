@@ -1,6 +1,6 @@
 import { Controller, Post, Body, ForbiddenException } from '@nestjs/common';
 import { RegistrationService } from './registration.service';
-import { RegistrationDto } from './dto/registration.dto';
+import { RegistrationDto } from '../auth/dto/registration.dto';
 
 @Controller('registration')
 export class RegistrationController {
